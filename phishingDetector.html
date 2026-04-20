@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PhishGuard — Scam & Phishing Detector</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="phishingui.css">
+</head>
+
+<body>
+  <div class="wrap">
+
+    <div class="hdr">
+      <div class="hdr-top">
+        <div class="dot"></div>
+        <div class="hdr-name">Phish<em>Guard</em></div>
+      </div>
+      <!-- <div class="hdr-sub">// phishing · scam · malicious URL detector</div> -->
+    </div>
+
+    <div class="card">
+      <div class="card-hd">
+        <div class="dot" style="width:7px;height:7px;animation-delay:.6s"></div>
+        <div class="card-hd-title">Message or URL to scan</div>
+      </div>
+      <div class="card-bd">
+
+        <div class="ex-lbl">Try an example</div>
+        <div class="ex-row">
+          <button class="ex-btn" onclick="lo('phish')">Phishing email</button>
+          <button class="ex-btn" onclick="lo('short')">Short URL</button>
+          <button class="ex-btn" onclick="lo('prize')">Prize scam</button>
+          <button class="ex-btn" onclick="lo('sms')">SMS smishing</button>
+          <button class="ex-btn" onclick="lo('legit')">Legit message</button>
+        </div>
+
+        <textarea id="inp" placeholder="Paste a suspicious message, email, or URL here..."></textarea>
+
+        <div class="div"></div>
+
+        <!-- ML -->
+        <div class="slbl">ML Model <span class="tag">optional</span></div>
+        <!-- <div class="ibox">
+          Connects to the trained <strong>Stacking Classifier</strong> your partner built — a machine learning model
+          trained on 1,849 real SMS spam messages. It analyses the <em>language patterns</em> in your message and
+          returns a spam probability score, giving a second opinion alongside the rule-based scan.<br><br>
+          <strong>To enable:</strong> put <code>api.py</code>, <code>model.pkl</code>, and <code>vectorizer.pkl</code>
+          in the same folder, open a terminal there, and run <code>uvicorn api:app --reload</code>. Then click Test
+          below.
+        </div> -->
+        <div class="field-row">
+          <input class="field" id="apiUrl" value="http://localhost:8000" placeholder="http://localhost:8000" />
+          <button class="btn ghost" onclick="testAPI()" style="font-size:12px;padding:9px 14px;white-space:nowrap">Test
+            connection</button>
+          <span class="cbadge" id="cbadge"></span>
+        </div>
+
+        <div class="div"></div>
+
+        <!-- GSB -->
+        <div class="slbl">Google Safe Browsing <span class="tag">optional</span></div>
+        <!-- <div class="ibox">
+          Google maintains a live database of <strong>millions of known phishing and malware sites</strong> — the exact
+          same database Chrome and Firefox use to warn you before you visit a dangerous page. Providing a key lets this
+          tool check every URL in your message against that database in real time.<br><br>
+          <strong>How to get a free key (5 min):</strong> visit <strong>console.cloud.google.com</strong> → create a
+          project → search <em>Safe Browsing API</em> → Enable → Credentials → Create API Key. Free up to 10,000 checks
+          per day. Without a key this section is simply skipped — everything else still works.
+        </div> -->
+        <div class="field-row">
+          <input class="field" id="gsbKey" type="password" placeholder="Paste Google API key here   (AIza...)" />
+          <span style="font-size:12px;color:var(--text3);white-space:nowrap">optional</span>
+        </div>
+
+        <div class="btn-row">
+          <button class="btn primary" id="scanBtn" onclick="analyze()">⟳&nbsp; Scan message</button>
+          <button class="btn ghost" onclick="clearAll()">Clear</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="results"></div>
+  </div>
+
+  <script src="phishingscript.js"></script>
+</body>
+
+</html>
