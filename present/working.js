@@ -60,7 +60,7 @@ function runRules(text) {
 }
 
 async function testAPI() {
-    const url = document.getElementById('apiUrl').value.trim();
+    const url = document.getElementById('apiUrl').value.trim() || window.location.origin;
     const el = document.getElementById('cbadge');
     el.className = 'cbadge chk'; el.textContent = 'testing...';
     try {
@@ -72,7 +72,7 @@ async function testAPI() {
 }
 
 async function callML(text) {
-    const url = document.getElementById('apiUrl').value.trim();
+    const url = document.getElementById('apiUrl').value.trim() || window.location.origin;
     const r = await fetch(`${url}/predict`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ message: text }), signal: AbortSignal.timeout(8000) });
     if (!r.ok) throw new Error(`API ${r.status}`);
     return r.json();

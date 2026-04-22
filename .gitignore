@@ -1,35 +1,4 @@
-# ── Secrets ──────────────────────────────────
 .env
-environment.env
-
-# ── Python ───────────────────────────────────
 __pycache__/
-*.py[cod]
-*.pyo
-*.pyd
-.Python
-*.egg-info/
-dist/
-build/
-*.egg
-.venv/
-venv/
-env/
-
-# ── Trained model files (large binaries) ─────
-# Remove these two lines if you WANT to track them in git
-model.pkl
-vectorizer.pkl
-
-# ── Data ─────────────────────────────────────
-# Comment out if you want to commit the dataset
-Data.csv
-
-# ── OS / Editor ──────────────────────────────
-.DS_Store
-Thumbs.db
-desktop.ini
-.vscode/
-.idea/
-*.swp
-*.swo
+*.pyc
+.vercel

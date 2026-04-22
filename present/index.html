@@ -9,7 +9,7 @@
   <link
     href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap"
     rel="stylesheet">
-  <link rel="stylesheet" href="phishingui.css">
+  <link rel="stylesheet" href="styling.css">
 </head>
 
 <body>
@@ -20,7 +20,7 @@
         <div class="dot"></div>
         <div class="hdr-name">Phish<em>Guard</em></div>
       </div>
-      <!-- <div class="hdr-sub">// phishing · scam · malicious URL detector</div> -->
+      <div class="hdr-sub">// phishing · scam · malicious URL detector</div>
     </div>
 
     <div class="card">
@@ -54,7 +54,7 @@
           below.
         </div> -->
         <div class="field-row">
-          <input class="field" id="apiUrl" value="http://localhost:8000" placeholder="http://localhost:8000" />
+          <input class="field" id="apiUrl" value="" placeholder="Leave empty when deployed on Vercel" />
           <button class="btn ghost" onclick="testAPI()" style="font-size:12px;padding:9px 14px;white-space:nowrap">Test
             connection</button>
           <span class="cbadge" id="cbadge"></span>
@@ -87,7 +87,7 @@
     <div id="results"></div>
   </div>
 
-  <script src="phishingscript.js"></script>
+  <script src="working.js"></script>
 </body>
 
 </html>
