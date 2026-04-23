@@ -73,7 +73,7 @@ async function testAPI() {
 
 async function callML(text) {
     const url = document.getElementById('apiUrl').value.trim() || window.location.origin;
-    const r = await fetch(`${url}/predict`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ message: text }), signal: AbortSignal.timeout(8000) });
+    const r = await fetch(`${url}/api/predict`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ message: text }), signal: AbortSignal.timeout(8000) });
     if (!r.ok) throw new Error(`API ${r.status}`);
     return r.json();
 }
