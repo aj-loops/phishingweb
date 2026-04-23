@@ -64,7 +64,7 @@ async function testAPI() {
     const el = document.getElementById('cbadge');
     el.className = 'cbadge chk'; el.textContent = 'testing...';
     try {
-        const r = await fetch(`${url}/health`, { signal: AbortSignal.timeout(4000) });
+        const r = await fetch(`${url}/api/health`, { signal: AbortSignal.timeout(4000) });
         const d = await r.json();
         if (d.status === 'ok') { el.className = 'cbadge ok'; el.textContent = '● connected' }
         else { el.className = 'cbadge err'; el.textContent = '● unexpected' }

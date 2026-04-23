@@ -32,7 +32,6 @@ class PredictResponse(BaseModel):
     confidence: float
     spam_probability: float
 
-
 @app.get("/api/health")
 def health():
     return {"status": "ok", "model": "StackingClassifier"}
